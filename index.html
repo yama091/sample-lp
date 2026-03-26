@@ -32,7 +32,6 @@
     a{text-decoration:none;color:inherit}
     .container{width:min(100% - 24px, 1100px);margin-inline:auto}
 
-    /* Header */
     .site-header{
       position:sticky;top:0;z-index:1000;
       background:rgba(255,255,255,.95);
@@ -40,8 +39,12 @@
       border-bottom:1px solid #e6edf5;
     }
     .header-inner{
-      min-height:74px;
-      display:flex;align-items:center;justify-content:space-between;gap:10px;
+      min-height:110px;
+      display:flex;
+      flex-direction:column;
+      align-items:stretch;
+      justify-content:center;
+      gap:10px;
       padding:10px 0;
     }
     .logo{
@@ -49,14 +52,22 @@
       font-size:clamp(1.4rem,4.8vw,2rem);
       font-weight:800;letter-spacing:.02em;
       white-space:nowrap;
+      text-align:left;
     }
-    .header-actions{display:flex;gap:8px;align-items:center}
+    .header-actions{
+      display:flex;
+      gap:8px;
+      align-items:center;
+      width:100%;
+    }
     .btn{
       display:inline-flex;align-items:center;justify-content:center;
       font-weight:700;border-radius:999px;border:none;cursor:pointer;
       transition:transform .2s ease, box-shadow .2s ease, opacity .2s ease;
-      font-size:clamp(.95rem,3.7vw,1.15rem);
-      min-height:48px;padding:0 14px;
+      font-size:clamp(.95rem,3.5vw,1.15rem);
+      min-height:48px;padding:0 12px;
+      flex:1;
+      min-width:0;
     }
     .btn:hover{transform:translateY(-1px)}
     .btn-phone{
@@ -68,7 +79,6 @@
       white-space:nowrap;
     }
 
-    /* Hero */
     .hero{
       position:relative;overflow:hidden;
       background:linear-gradient(140deg, rgba(11,92,171,.92), rgba(8,61,116,.90));
@@ -116,7 +126,6 @@
       box-shadow:var(--shadow);
     }
 
-    /* Section common */
     section{padding:34px 0}
     .section-title{
       margin:0 0 16px;
@@ -131,7 +140,6 @@
       border:1px solid #e7eef6;
     }
 
-    /* Strength */
     .strength-grid{
       display:grid;gap:12px;
       grid-template-columns:1fr;
@@ -159,7 +167,6 @@
       font-size:clamp(.98rem,3.8vw,1.08rem);
     }
 
-    /* Works */
     .works-grid{
       display:grid;gap:12px;
       grid-template-columns:1fr;
@@ -191,7 +198,6 @@
       border-top:1px solid #e7eef6;
     }
 
-    /* Pricing */
     .pricing-wrap{overflow-x:auto}
     table{
       width:100%;
@@ -225,7 +231,6 @@
       font-size:clamp(.9rem,3.5vw,1rem);
     }
 
-    /* CTA */
     .cta{
       padding:18px;
       background:linear-gradient(135deg, #fff, #f9fcff);
@@ -255,7 +260,6 @@
       font-size:clamp(.88rem,3.4vw,.98rem);
     }
 
-    /* Reveal animation */
     .reveal{
       opacity:0;transform:translateY(18px);
       transition:opacity .7s ease, transform .7s ease;
@@ -264,7 +268,6 @@
       opacity:1;transform:translateY(0);
     }
 
-    /* Sticky bottom CTA for mobile */
     .sticky-cta{
       position:fixed;left:0;right:0;bottom:0;z-index:999;
       background:rgba(255,255,255,.97);
@@ -283,10 +286,22 @@
     }
     .spacer-for-sticky{height:78px}
 
-    /* Desktop */
     @media (min-width: 768px){
       .container{width:min(100% - 40px, 1100px)}
-      .header-inner{min-height:82px}
+      .header-inner{
+        min-height:82px;
+        flex-direction:row;
+        align-items:center;
+        justify-content:space-between;
+        gap:10px;
+      }
+      .header-actions{
+        width:auto;
+      }
+      .header-actions .btn{
+        flex:0 0 auto;
+        min-width:auto;
+      }
       .hero-inner{
         grid-template-columns:1.05fr 1fr;
         align-items:center;
@@ -321,7 +336,7 @@
           <p class="hero-note">しつこい営業なし。まずは無料診断で、現状をわかりやすくご説明します。</p>
         </div>
         <div class="hero-image reveal">
-          <img src="https://via.placeholder.com/900x600/2f6cab/ffffff?text=%E8%AA%A0%E5%AE%9F%E3%81%AA%E8%81%B7%E4%BA%BA%E3%81%AE%E5%86%99%E7%9C%9F" alt="誠実そうな職人のイメージ画像（差し替え用）">
+          <img src="hero-painter.jpg" alt="誠実そうな職人のイメージ画像（差し替え用）">
         </div>
       </div>
     </section>
@@ -363,11 +378,11 @@
             <h3 class="work-title">外壁塗装（〇〇市 A様邸）</h3>
             <div class="ba">
               <figure>
-                <img src="https://via.placeholder.com/600x380/d9dde3/333333?text=Before" alt="外壁塗装 前の写真（差し替え用）">
+                <img src="before-wall.jpg" alt="外壁塗装 前の写真（差し替え用）">
                 <figcaption>Before</figcaption>
               </figure>
               <figure>
-                <img src="https://via.placeholder.com/600x380/bfdfff/0b3a67?text=After" alt="外壁塗装 後の写真（差し替え用）">
+                <img src="after-wall.jpg" alt="外壁塗装 後の写真（差し替え用）">
                 <figcaption>After</figcaption>
               </figure>
             </div>
@@ -377,11 +392,11 @@
             <h3 class="work-title">屋根修理（〇〇市 B様邸）</h3>
             <div class="ba">
               <figure>
-                <img src="https://via.placeholder.com/600x380/e3d9d0/333333?text=Before" alt="屋根修理 前の写真（差し替え用）">
+                <img src="before-wall.jpg" alt="屋根修理 前の写真（差し替え用）">
                 <figcaption>Before</figcaption>
               </figure>
               <figure>
-                <img src="https://via.placeholder.com/600x380/ffe1c2/834400?text=After" alt="屋根修理 後の写真（差し替え用）">
+                <img src="after-wall.jpg" alt="屋根修理 後の写真（差し替え用）">
                 <figcaption>After</figcaption>
               </figure>
             </div>
@@ -457,22 +472,20 @@
   </div>
 
   <script>
-    // Simple and fast reveal-on-scroll effect (no external libraries)
     (function () {
-      var targets = document.querySelectorAll('.reveal');
-      if (!('IntersectionObserver' in window)) {
-        targets.forEach(function (el) { el.classList.add('show'); });
+      var targets = document.querySelectorAll(".reveal");
+      if (!("IntersectionObserver" in window)) {
+        targets.forEach(function (el) { el.classList.add("show"); });
         return;
       }
       var io = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
-            entry.target.classList.add('show');
+            entry.target.classList.add("show");
             io.unobserve(entry.target);
           }
         });
       }, { threshold: 0.15 });
-
       targets.forEach(function (el) { io.observe(el); });
     })();
   </script>
